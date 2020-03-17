@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack" //터미널에서 npm run build 했을때 webpack 실행함.
   },
   "author": "",
   "license": "ISC",
