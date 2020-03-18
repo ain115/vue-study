@@ -1,17 +1,26 @@
-const path = require('path');//node에서 절대경로 작성을 쉽게 해주기위해 사용할 수 있도록 만들어둔 path메서드(모듈?)
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require('path');
 
 module.exports = {
+    mode: 'development',
+    devtool: 'eval',
+    resolve: {
+      extensions: ['.js', '.vue'],
+    },
     entry: {
-        app: path.join(__dirname, 'main.js'),
+      app: path.join(__dirname, 'main.js'),
     },
     module: {
-        rules: [{
-
-        }],
+      rules: [{
+        test: /\.vue$/,
+        use: 'vue-loader',
+      }],
     },
-    plugins: [],
+    plugins: [
+      new VueLoaderPlugin(),
+    ],
     output: {
-        filemane: 'app.js',
-        path: path.join(__dirname, 'dist'),
-    }
-};
+      filename: '[name].js',
+      path: path.join(__dirname, 'dist'),
+    },
+  };
